@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html data-ng-app="GOWCFApp">
+	<head>
+		<title>GOW Card Filter</title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script>
+		<script type="text/javascript" src="GOWCF.js"></script>
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="GOWCF.css">
+	</head>
+	<body>
+		<div class="container-fluid main" data-ng-controller="MainCtrl">
+			<div class="row menu_top">
+				<h1 class="col-xs-6">GOW Card Filter</h1>
+			</div>
+			
+			<div class="row content">
+				<div class="box col-xs-12">
+					<ul class="row menu">
+						<li class="col-xs-12 active">Filters</li>
+					</ul>
+					<div class="box-content row">
+						<div class="col-xs-4">
+							<div class="row">
+								<label for="name" class="col-xs-4">Name</label>
+								<input id="name" data-ng-model="filters.name" class="col-xs-8"></input>
+							</div>
+							<div class="row">
+								<label for="kingdom" class="col-xs-4">Kingdom</label>
+								<select id="kingdom" data-ng-model="filters.kingdom" 
+									data-ng-options="k for k in game.kingdoms" class="col-xs-8"></select>
+							</div>
+							<div class="row">
+								<label for="type" class="col-xs-4">Type</label>
+								<select id="type" data-ng-model="filters.type" 
+									data-ng-options="t for t in game.types" class="col-xs-8"></select>
+							</div>
+							<div class="row">
+								<label for="rarity" class="col-xs-4">Rarity</label>
+								<select id="rarity" data-ng-model="filters.rarity" 
+									data-ng-options="r for r in game.rarities" class="col-xs-8"></select>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="row">
+								<label for="color1" class="col-xs-4">Colors</label>
+								<select id="color1" data-ng-model="filters.color1" 
+									data-ng-options="c for c in game.colors" class="col-xs-6"></select>
+							</div>
+							<div class="row">
+								<label for="color1" class="col-xs-4"></label>
+								<select id="color2" data-ng-model="filters.color2" 
+									data-ng-options="c for c in game.colors" class="col-xs-6"></select>
+							</div>
+							<div class="row">
+								<label for="maxcost" class="col-xs-4">Max Cost</label>
+								<select id="maxcost" data-ng-model="filters.maxcost" 
+									data-ng-options="c for c in game.costs" class="col-xs-4"></select>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="row">
+								<label for="trait1" class="col-xs-4">Traits</label>
+								<select id="trait1" data-ng-model="filters.trait1" 
+									data-ng-options="t for t in game.traits" class="col-xs-8"></select>
+							</div>
+							<div class="row">
+								<label for="trait2" class="col-xs-4"></label>
+								<select id="trait2" data-ng-model="filters.trait2" 
+									data-ng-options="t for t in game.traits" class="col-xs-8"></select>
+							</div>
+							<div class="row">
+								<label for="trait3" class="col-xs-4"></label>
+								<select id="trait3" data-ng-model="filters.trait3" 
+									data-ng-options="t for t in game.traits" class="col-xs-8"></select>
+							</div>
+						</div>
+					</div>
+					<!--div class="row">
+						<div class="col-xs-12">
+							<label>
+								<span>Keywords</span>
+								<textarea data-ng-model="filters.keywords"></textarea>
+							</label>
+						</div>
+					</div-->
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
