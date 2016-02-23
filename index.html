@@ -28,52 +28,75 @@
 							<div class="row">
 								<label for="kingdom" class="col-xs-4">Kingdom</label>
 								<select id="kingdom" data-ng-model="filters.kingdom" 
-									data-ng-options="k for k in game.kingdoms" class="col-xs-8"></select>
+									data-ng-options="k for k in game.kingdoms" class="col-xs-8">
+									<option value=""></option>
+								</select>
 							</div>
 							<div class="row">
 								<label for="type" class="col-xs-4">Type</label>
 								<select id="type" data-ng-model="filters.type" 
-									data-ng-options="t for t in game.types" class="col-xs-8"></select>
+									data-ng-options="t for t in game.types" class="col-xs-8">
+									<option value=""></option>
+								</select>
 							</div>
 							<div class="row">
 								<label for="rarity" class="col-xs-4">Rarity</label>
 								<select id="rarity" data-ng-model="filters.rarity" 
-									data-ng-options="r for r in game.rarities" class="col-xs-8"></select>
+									data-ng-options="r for r in game.rarities" class="col-xs-8">
+									<option value=""></option>
+								</select>
 							</div>
 						</div>
 						<div class="col-xs-4">
 							<div class="row">
 								<label for="color1" class="col-xs-4">Colors</label>
 								<select id="color1" data-ng-model="filters.color1" 
-									data-ng-options="c for c in game.colors" class="col-xs-6"></select>
+									data-ng-options="c for c in game.colors" class="col-xs-6">
+									<option value=""></option>
+								</select>
 							</div>
 							<div class="row">
 								<label for="color1" class="col-xs-4"></label>
 								<select id="color2" data-ng-model="filters.color2" 
-									data-ng-options="c for c in game.colors" class="col-xs-6"></select>
+									data-ng-options="c for c in game.colors" class="col-xs-6">
+									<option value=""></option>
+								</select>
 							</div>
 							<div class="row">
-								<label for="maxcost" class="col-xs-4">Max Cost</label>
-								<select id="maxcost" data-ng-model="filters.maxcost" 
-									data-ng-options="c for c in game.costs" class="col-xs-4"></select>
+								<label for="cost" class="col-xs-4">Max Cost</label>
+								<select id="cost" data-ng-model="filters.cost" 
+									data-ng-options="c for c in game.costs" class="col-xs-4">
+									<option value=""></option>
+								</select>
 							</div>
 						</div>
 						<div class="col-xs-4">
 							<div class="row">
 								<label for="trait1" class="col-xs-4">Traits</label>
 								<select id="trait1" data-ng-model="filters.trait1" 
-									data-ng-options="t for t in game.traits" class="col-xs-8"></select>
+									data-ng-options="t for t in game.traits" class="col-xs-8">
+									<option value=""></option>
+								</select>
 							</div>
 							<div class="row">
 								<label for="trait2" class="col-xs-4"></label>
 								<select id="trait2" data-ng-model="filters.trait2" 
-									data-ng-options="t for t in game.traits" class="col-xs-8"></select>
+									data-ng-options="t for t in game.traits" class="col-xs-8">
+									<option value=""></option>
+								</select>
 							</div>
 							<div class="row">
 								<label for="trait3" class="col-xs-4"></label>
 								<select id="trait3" data-ng-model="filters.trait3" 
-									data-ng-options="t for t in game.traits" class="col-xs-8"></select>
+									data-ng-options="t for t in game.traits" class="col-xs-8">
+									<option value=""></option>
+								</select>
 							</div>
+						</div>
+					</div>
+					<div class="box-content row">
+						<div class="col-xs-offset-1 col-xs-10">
+							<input type="button" data-ng-click="search()" value="Search">
 						</div>
 					</div>
 					<!--div class="row">
@@ -84,6 +107,46 @@
 							</label>
 						</div>
 					</div-->
+				</div>
+				<div class="box col-xs-12" data-ng-show="cards">
+					<ul class="row menu">
+						<li class="col-xs-12 active">{{cards.length}} card(s) found</li>
+					</ul>
+					<div class="box-content row">
+						<div class="col-xs-2">Name</div>
+						<div class="col-xs-2">Kingdom</div>
+						<div class="col-xs-2">Type</div>
+						<div class="col-xs-2">Rarity</div>
+						<div class="col-xs-1">Cost</div>
+						<div class="col-xs-1">Colors</div>
+						<div class="col-xs-2">Traits</div>
+					</div>
+					<div class="box-content row" data-ng-repeat="card in cards" data-ng-class-even="'even'">
+						<div class="col-xs-2">
+							<a href="http://gems-of-war.wikia.com/wiki/{{card.name}}" target="_blank">{{card.name}}</a>
+						</div>
+						<div class="col-xs-2">
+							<a href="http://gems-of-war.wikia.com/wiki/{{card.kingdom}}" target="_blank">{{card.kingdom}}</a>
+						</div>
+						<div class="col-xs-2">
+							<a href="http://gems-of-war.wikia.com/wiki/{{card.type}}" target="_blank">{{card.type}}</a>
+						</div>
+						<div class="col-xs-2">
+							{{card.rarity}}
+						</div>
+						<div class="col-xs-1">
+							{{card.cost}}
+						</div>
+						<div class="col-xs-1">
+							{{card.color1}}<br />
+							{{card.color2}}
+						</div>
+						<div class="col-xs-2">
+							<a href="http://gems-of-war.wikia.com/wiki/{{card.trait1}}" target="_blank">{{card.trait1}}</a><br />
+							<a href="http://gems-of-war.wikia.com/wiki/{{card.trait2}}" target="_blank">{{card.trait2}}</a><br />
+							<a href="http://gems-of-war.wikia.com/wiki/{{card.trait3}}" target="_blank">{{card.trait3}}</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
